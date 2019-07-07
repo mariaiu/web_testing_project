@@ -15,3 +15,9 @@ def test_guest_can_add_product_to_cart(browser, link):
     page.should_be_cost_to_cart_message()
     page.should_be_right_cost_in_message()
 
+
+def test_guest_cant_see_success_message(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_not_be_success_message()
